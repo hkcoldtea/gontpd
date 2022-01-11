@@ -33,6 +33,7 @@ func (svr *Server) followUpState() (err error) {
 	if err != nil {
 		return
 	}
+	defer conn.Close()
 	err = conn.SetDeadline(time.Now().Add(3 * time.Second))
 	if err != nil {
 		return
